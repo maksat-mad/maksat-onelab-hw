@@ -3,6 +3,7 @@ package com.onelab.task.service_test;
 import com.onelab.task.entities.Author;
 import com.onelab.task.entities.Book;
 import com.onelab.task.entities.Genre;
+import com.onelab.task.kafka.KafkaProducers;
 import com.onelab.task.repository.AuthorRepository;
 import com.onelab.task.repository.BookRepository;
 import com.onelab.task.repository.GenreRepository;
@@ -28,6 +29,9 @@ public class UserServiceTest {
 
     @Mock
     GenreRepository genreRepository;
+
+    @Mock
+    KafkaProducers kafkaProducers;
 
     @InjectMocks
     UserService service;
