@@ -1,10 +1,10 @@
-package com.onelab.task4;
+package com.onelab.task;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Task4ApplicationTests {
+class TaskApplicationTests {
 
 	@Test
 	void contextLoads() {

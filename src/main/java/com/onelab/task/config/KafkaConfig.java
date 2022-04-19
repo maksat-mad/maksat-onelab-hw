@@ -1,4 +1,4 @@
-package com.onelab.task4.config;
+package com.onelab.task.config;
 
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.consumer.ConsumerConfig;

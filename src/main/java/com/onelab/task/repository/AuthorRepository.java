@@ -1,6 +1,6 @@
-package com.onelab.task4.repository;
+package com.onelab.task.repository;
 
-import com.onelab.task4.entities.Author;
+import com.onelab.task.entities.Author;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

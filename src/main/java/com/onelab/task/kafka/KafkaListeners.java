@@ -1,4 +1,4 @@
-package com.onelab.task4.kafka;
+package com.onelab.task.kafka;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

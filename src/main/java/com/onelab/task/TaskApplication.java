@@ -1,20 +1,20 @@
-package com.onelab.task4;
+package com.onelab.task;
 
-import com.onelab.task4.services.UserService;
+import com.onelab.task.services.UserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Task4Application {
+public class TaskApplication {
 
 	private static UserService service;
 
-	public Task4Application(UserService service) {
-		Task4Application.service = service;
+	public TaskApplication(UserService service) {
+		TaskApplication.service = service;
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(Task4Application.class, args);
+		SpringApplication.run(TaskApplication.class, args);
 		service.findAllAuthors();
 		service.findAllBooks();
 		service.findAllGenres();

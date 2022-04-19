@@ -1,4 +1,4 @@
-package com.onelab.task4.config;
+package com.onelab.task.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

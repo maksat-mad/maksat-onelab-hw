@@ -1,4 +1,4 @@
-package com.onelab.task4.entities;
+package com.onelab.task.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

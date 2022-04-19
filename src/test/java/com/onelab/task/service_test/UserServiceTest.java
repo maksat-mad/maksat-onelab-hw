@@ -1,12 +1,12 @@
-package com.onelab.task4.service_test;
+package com.onelab.task.service_test;
 
-import com.onelab.task4.entities.Author;
-import com.onelab.task4.entities.Book;
-import com.onelab.task4.entities.Genre;
-import com.onelab.task4.repository.AuthorRepository;
-import com.onelab.task4.repository.BookRepository;
-import com.onelab.task4.repository.GenreRepository;
-import com.onelab.task4.services.UserService;
+import com.onelab.task.entities.Author;
+import com.onelab.task.entities.Book;
+import com.onelab.task.entities.Genre;
+import com.onelab.task.repository.AuthorRepository;
+import com.onelab.task.repository.BookRepository;
+import com.onelab.task.repository.GenreRepository;
+import com.onelab.task.services.UserService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

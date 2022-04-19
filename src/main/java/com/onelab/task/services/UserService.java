@@ -1,12 +1,12 @@
-package com.onelab.task4.services;
+package com.onelab.task.services;
 
-import com.onelab.task4.entities.Author;
-import com.onelab.task4.entities.Book;
-import com.onelab.task4.entities.Genre;
-import com.onelab.task4.kafka.KafkaProducers;
-import com.onelab.task4.repository.AuthorRepository;
-import com.onelab.task4.repository.BookRepository;
-import com.onelab.task4.repository.GenreRepository;
+import com.onelab.task.entities.Author;
+import com.onelab.task.entities.Book;
+import com.onelab.task.entities.Genre;
+import com.onelab.task.kafka.KafkaProducers;
+import com.onelab.task.repository.AuthorRepository;
+import com.onelab.task.repository.BookRepository;
+import com.onelab.task.repository.GenreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

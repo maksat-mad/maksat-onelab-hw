@@ -1,6 +1,6 @@
-package com.onelab.task4.repository;
+package com.onelab.task.repository;
 
-import com.onelab.task4.entities.Genre;
+import com.onelab.task.entities.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,5 +8,5 @@ import javax.transaction.Transactional;
 
 @Repository
 @Transactional
-public interface GenreRepository extends JpaRepository<Genre, Long> {
+public interface BookRepository extends JpaRepository<Book, Long> {
 }

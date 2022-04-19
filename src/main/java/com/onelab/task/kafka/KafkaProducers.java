@@ -1,7 +1,7 @@
-package com.onelab.task4.kafka;
+package com.onelab.task.kafka;
 
-import com.onelab.task4.entities.UserRequestTime;
-import com.onelab.task4.repository.UserRequestTimeRepository;
+import com.onelab.task.entities.UserRequestTime;
+import com.onelab.task.repository.UserRequestTimeRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
