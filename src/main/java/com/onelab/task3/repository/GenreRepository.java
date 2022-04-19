@@ -1,13 +1,12 @@
 package com.onelab.task3.repository;
 
-import com.onelab.task3.entities.GenreEntity;
+import com.onelab.task3.entities.Genre;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
-import java.util.List;
 
 @Repository
 @Transactional
-public interface GenreRepository extends JpaRepository<GenreEntity, Long> {
+public interface GenreRepository extends JpaRepository<Genre, Long> {
 }

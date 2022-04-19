@@ -11,33 +11,37 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BookEntity {
+public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "book_id")
-    private long book_id;
+    private Long book_id;
 
     @Column(name = "title")
     private String title;
 
-    @Column(name = "author_id")
-    private long author_id;
-
-    @Column(name = "genre_id")
-    private long genre_id;
-
     @Column(name = "price")
-    private int price;
+    private Integer price;
 
     @Column(name = "amount")
-    private int amount;
+    private Integer amount;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "author_id")
-    private AuthorEntity author;
+    private Author author;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "genre_id")
-    private GenreEntity genre;
+    private Genre genre;
+
+    @Override
+    public String toString() {
+        return "Book = { " +
+                "book_id = " + book_id +
+                ", title = " + title +
+                ", price = " + price +
+                ", amount = " + amount +
+                " }\n";
+    }
 }

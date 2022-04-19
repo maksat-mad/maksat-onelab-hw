@@ -18,18 +18,3 @@ CREATE TABLE book (
     FOREIGN KEY (author_id)  REFERENCES author (author_id) ON DELETE CASCADE,
     FOREIGN KEY (genre_id)  REFERENCES genre (genre_id) ON DELETE SET NULL
 );
-
-CREATE TABLE author_log (
-    author_log_id INT PRIMARY KEY AUTO_INCREMENT,
-    time VARCHAR(50)
-);
-
-CREATE TABLE genre_log (
-    genre_log_id INT PRIMARY KEY AUTO_INCREMENT,
-    time VARCHAR(50)
-);
-
-CREATE TABLE book_log (
-    book_log_id INT PRIMARY KEY AUTO_INCREMENT,
-    time VARCHAR(50)
-);
