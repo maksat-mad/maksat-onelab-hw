@@ -10,7 +10,10 @@ import java.util.List;
 @Repository
 @Transactional
 public interface BookRepository extends JpaRepository<Book, Long> {
+    //List<Book> findBookByBook_idEquals(Long id);  ***  DOES NOT WORK  ***
     List<Book> findBookByTitleEquals(String title);
-    List<Book> findBookByPriceBeforeAndPriceEquals(Integer price_before, Integer price_eq);
-    List<Book> findBookByAmountBeforeAndAmountEquals(Integer amount_before, Integer amount_equals);
+    List<Book> findBookByPriceBeforeOrPriceEquals(Integer price_before, Integer price_eq);
+    List<Book> findBookByAmountBeforeOrAmountEquals(Integer amount_before, Integer amount_equals);
+    //List<Book> findBookByGenre_Name_genre(String genre);           ***  DOES NOT WORK  ***
+    //List<Book> findBookByAuthor_Name_author(String name_author);   ***  DOES NOT WORK  ***
 }

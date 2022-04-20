@@ -6,7 +6,7 @@ import com.onelab.task.entities.Genre;
 import com.onelab.task.repository.AuthorRepository;
 import com.onelab.task.repository.BookRepository;
 import com.onelab.task.repository.GenreRepository;
-import com.onelab.task.services.UserService;
+import com.onelab.task.services.user_service.UserService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
