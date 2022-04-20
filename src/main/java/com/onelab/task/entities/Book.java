@@ -1,5 +1,6 @@
 package com.onelab.task.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,10 +30,12 @@ public class Book {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "author_id")
+    @JsonIgnore
     private Author author;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "genre_id")
+    @JsonIgnore
     private Genre genre;
 
     @Override

@@ -66,10 +66,4 @@ public class HibernateConfig {
     public PlatformTransactionManager transactionManager() {
         return new JpaTransactionManager(entityManagerFactory());
     }
-
-    /*
-    @Bean
-    public UserService userSerice() {
-        return new UserService();
-    }*/
 }
