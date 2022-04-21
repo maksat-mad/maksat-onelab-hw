@@ -2,8 +2,11 @@ package com.onelab.task.services.manager_service;
 
 import com.onelab.task.design_pattern.singleton_pattern.SingletonRepository;
 import com.onelab.task.entities.Author;
+import com.onelab.task.entities.UserRequestTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ManagerService {
@@ -37,5 +40,9 @@ public class ManagerService {
         } catch (Exception ex) {
             return "DID NOT SAVED the Author :(";
         }
+    }
+
+    public List<UserRequestTime> showTimes() {
+        return SingletonRepository.getUserRequestTimeRepository().findAll();
     }
 }

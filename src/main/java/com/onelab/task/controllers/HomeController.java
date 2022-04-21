@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/")
-public class MainController {
+public class HomeController {
 
     @GetMapping(value = "/")
-    public String mainPage() {
+    public String homePage() {
         return "index";
     }
 }
