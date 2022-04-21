@@ -1,9 +1,9 @@
 package com.onelab.task.controllers;
 
+import com.onelab.task.design_pattern.singleton_pattern.SingletonService;
 import com.onelab.task.entities.Author;
 import com.onelab.task.entities.Book;
 import com.onelab.task.entities.Genre;
-import com.onelab.task.services.user_service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,11 +17,8 @@ import java.util.Set;
 @RequestMapping("/user")
 public class UserRestController {
 
-    private final UserService userService;
-
     @Autowired
-    UserRestController(UserService userService) {
-        this.userService = userService;
+    UserRestController(SingletonService singletonService) {
     }
 
     // Get requests
@@ -34,47 +31,47 @@ public class UserRestController {
 
     @GetMapping("/authors")
     public List<Author> findAllAuthors() {
-        return userService.findAllAuthors();
+        return SingletonService.getUserService().findAllAuthors();
     }
 
     @GetMapping("/books")
     public List<Book> findAllBooks() {
-        return userService.findAllBooks();
+        return SingletonService.getUserService().findAllBooks();
     }
 
     @GetMapping("/books/title")
     public Set<String> findBookAllTitles() {
-        return userService.findBookAllTitles();
+        return SingletonService.getUserService().findBookAllTitles();
     }
 
     @GetMapping("/books/title/{title}")
     public List<Book> findBookByTitleEquals(@PathVariable("title") String title) {
-        return userService.findBookByTitleEquals(title);
+        return SingletonService.getUserService().findBookByTitleEquals(title);
     }
 
     @GetMapping("/books/price")
     public Set<Integer> findBookAllPrices() {
-        return userService.findBookAllPrices();
+        return SingletonService.getUserService().findBookAllPrices();
     }
 
     @GetMapping("/books/price/{price}")
     public List<Book> findBookByPriceBeforeOrPriceEquals(@PathVariable("price") Integer price) {
-        return userService.findBookByPriceBeforeOrPriceEquals(price, price);
+        return SingletonService.getUserService().findBookByPriceBeforeOrPriceEquals(price, price);
     }
 
     @GetMapping("/books/amount")
     public Set<Integer> findBookAllAmounts() {
-        return userService.findBookAllAmounts();
+        return SingletonService.getUserService().findBookAllAmounts();
     }
 
     @GetMapping("/books/amount/{amount}")
     public List<Book> findBookByAmountBeforeOrAmountEquals(@PathVariable("amount") Integer amount) {
-        return userService.findBookByAmountBeforeOrAmountEquals(amount, amount);
+        return SingletonService.getUserService().findBookByAmountBeforeOrAmountEquals(amount, amount);
     }
 
     @GetMapping("/genres")
     public List<Genre> findAllGenres() {
-        return userService.findAllGenres();
+        return SingletonService.getUserService().findAllGenres();
     }
 
     @GetMapping("/buy")
@@ -88,13 +85,13 @@ public class UserRestController {
     @GetMapping("/buy/{title}/{name_author}")
     public String buyBookByTitleAndNameAuthorAndAmount(@PathVariable("title") String title,
                                                        @PathVariable("name_author") String name_author) {
-        return userService.buyBookByTitleAndNameAuthorAndAmount(title, name_author, 1);
+        return SingletonService.getUserService().buyBookByTitleAndNameAuthorAndAmount(title, name_author, 1);
     }
 
     @GetMapping("/buy/{title}/{name_author}/{amount}")
     public String buyBookByTitleAndNameAuthorAndAmount(@PathVariable("title") String title,
                                                        @PathVariable("name_author") String name_author,
                                                        @PathVariable("amount") Integer amount) {
-        return userService.buyBookByTitleAndNameAuthorAndAmount(title, name_author, amount);
+        return SingletonService.getUserService().buyBookByTitleAndNameAuthorAndAmount(title, name_author, amount);
     }
 }

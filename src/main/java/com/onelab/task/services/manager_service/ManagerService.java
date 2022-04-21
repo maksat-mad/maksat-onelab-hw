@@ -1,63 +1,41 @@
 package com.onelab.task.services.manager_service;
 
-import com.onelab.task.repository.AuthorRepository;
-import com.onelab.task.repository.BookRepository;
-import com.onelab.task.repository.GenreRepository;
+import com.onelab.task.design_pattern.singleton_pattern.SingletonRepository;
+import com.onelab.task.entities.Author;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ManagerService {
 
-    private final AuthorRepository authorRepository;
-    private final BookRepository bookRepository;
-    private final GenreRepository genreRepository;
-
     @Autowired
-    public ManagerService(AuthorRepository authorRepository,
-                       BookRepository bookRepository,
-                       GenreRepository genreRepository) {
-        this.authorRepository = authorRepository;
-        this.bookRepository = bookRepository;
-        this.genreRepository = genreRepository;
+    public ManagerService(SingletonRepository singletonRepository) {
     }
 
     /**
      * @Author Service
-     * createAuthor
-     *
-     * deleteAuthor
-     *
-     * deleteAllAuthors
-     *
-     * updateAuthors
-     * updateAuthorByName
-     * updateAuthorById
+     * deleteByAuthorId  *** DO THIS METHOD *******************
      *
      * @Book
-     * createBook
-     *
-     * deleteBook
-     *
-     * deleteAllBooks
-     *
-     * updateBooks
-     * updateBookByName
-     * updateBookById
+     * deleteByBookId    *** DO THIS METHOD *******************
      *
      * @Genre
-     * createGenre
+     * deleteByGenreId   *** DO THIS METHOD *******************
      *
-     * deleteGenre
-     *
-     * deleteAllGenres
-     *
-     * updateGenreByName
-     * updateGenreById
-     *
+     * @Customer Data Analysis
+     * showTimes
+     * searchedBookName
+     * searchedAuthorName
+     * searchedGenreName
      *
      * */
 
-    // Author Service
-
+    public String saveAuthor(Author theAuthor) {
+        try {
+            SingletonRepository.getAuthorRepository().save(theAuthor);
+            return "SUCCESSFULLY SAVED the Author :)";
+        } catch (Exception ex) {
+            return "DID NOT SAVED the Author :(";
+        }
+    }
 }

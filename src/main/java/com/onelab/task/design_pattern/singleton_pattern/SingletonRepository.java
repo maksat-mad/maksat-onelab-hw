@@ -1,26 +1,25 @@
-package com.onelab.task.design_pattern.singleton;
+package com.onelab.task.design_pattern.singleton_pattern;
 
 import com.onelab.task.repository.AuthorRepository;
 import com.onelab.task.repository.BookRepository;
 import com.onelab.task.repository.GenreRepository;
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public final class Singleton {
+public final class SingletonRepository {
 
     private static AuthorRepository authorRepository;
     private static BookRepository bookRepository;
     private static GenreRepository genreRepository;
 
     @Autowired
-    private Singleton(AuthorRepository authorRepository,
-                      BookRepository bookRepository,
-                      GenreRepository genreRepository) {
-        Singleton.authorRepository = authorRepository;
-        Singleton.bookRepository = bookRepository;
-        Singleton.genreRepository = genreRepository;
+    private SingletonRepository(AuthorRepository authorRepository,
+                                BookRepository bookRepository,
+                                GenreRepository genreRepository) {
+        SingletonRepository.authorRepository = authorRepository;
+        SingletonRepository.bookRepository = bookRepository;
+        SingletonRepository.genreRepository = genreRepository;
     }
 
     public static AuthorRepository getAuthorRepository() {
