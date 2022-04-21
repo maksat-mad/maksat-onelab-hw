@@ -1,5 +1,6 @@
 package com.onelab.task.services.user_service;
 
+import com.onelab.task.design_pattern.singleton.Singleton;
 import com.onelab.task.entities.Author;
 import com.onelab.task.entities.Book;
 import com.onelab.task.entities.Genre;
@@ -33,17 +34,24 @@ public class UserService {
         this.genreRepository = genreRepository;
     }
 
-    /*
+    /*private final Singleton singleton;
+
+    @Autowired
+    public UserService(Singleton singleton) {
+        this.singleton = singleton;
+    }*/
+
+    /**
     * This is UserService. Here user can:
     *
     * @Author Services
     * findAllAuthors +
-    * findAuthorByName_author  *** DO THIS METHOD ***
-    * findAuthorByBookTitle    *** DO THIS METHOD ***
+    * findAuthorByName_author  *** DO THIS METHOD *******************
+    * findAuthorByBookTitle    *** DO THIS METHOD *******************
     *
     * @Book Services
     * findAllBooks +
-    * findBookByBookId         *** DO THIS METHOD ***
+    * findBookByBookId         *** DO THIS METHOD *******************
     * findBookAllTitles +
     * findBookByTitle +
     * findBookAllPrices +
@@ -51,8 +59,8 @@ public class UserService {
     * findBookAllAmounts +
     * findBookByAmountBeforeAndAmountEquals +
     * findAllGenres +
-    * findBookByGenre_Name_genre    *** DO THIS METHOD ***
-    * findBookByAuthor_Name_author  *** DO THIS METHOD ***
+    * findBookByGenre_Name_genre    *** DO THIS METHOD **************
+    * findBookByAuthor_Name_author  *** DO THIS METHOD **************
     *
     * @Buy Service
     * buyBookByTitleAndNameAuthorAndAmount +

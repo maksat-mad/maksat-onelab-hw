@@ -22,5 +22,42 @@ public class ManagerService {
         this.genreRepository = genreRepository;
     }
 
+    /**
+     * @Author Service
+     * createAuthor
+     *
+     * deleteAuthor
+     *
+     * deleteAllAuthors
+     *
+     * updateAuthors
+     * updateAuthorByName
+     * updateAuthorById
+     *
+     * @Book
+     * createBook
+     *
+     * deleteBook
+     *
+     * deleteAllBooks
+     *
+     * updateBooks
+     * updateBookByName
+     * updateBookById
+     *
+     * @Genre
+     * createGenre
+     *
+     * deleteGenre
+     *
+     * deleteAllGenres
+     *
+     * updateGenreByName
+     * updateGenreById
+     *
+     *
+     * */
+
     // Author Service
+
 }
