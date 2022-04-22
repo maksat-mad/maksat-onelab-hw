@@ -1,5 +1,6 @@
 package com.onelab.task.controllers;
 
+import com.onelab.task.entities.UserRequestBook;
 import com.onelab.task.patterns.singleton.SingletonService;
 import com.onelab.task.entities.UserRequestTime;
 import org.slf4j.Logger;
@@ -30,23 +31,28 @@ public class ManagerRestController {
 //        return SingletonService.getManagerService().saveAuthor(theAuthor);
 //    }
 
-    @GetMapping("/user/request/time")
-    public List<UserRequestTime> showTimes() {
-        return SingletonService.getManagerService().showTimes();
-    }
-
-    @DeleteMapping("delete/author/{authorId}")
+    @DeleteMapping("/delete/author/{authorId}")
     public String deleteAuthorByAuthorId(@PathVariable("authorId") Long authorId) {
         return SingletonService.getManagerService().deleteAuthorByAuthorId(authorId);
     }
 
-    @DeleteMapping("delete/book/{bookId}")
+    @DeleteMapping("/delete/book/{bookId}")
     public String deleteAuthorByBookId(@PathVariable("bookId") Long bookId) {
         return SingletonService.getManagerService().deleteBookByBookId(bookId);
     }
 
-    @DeleteMapping("delete/genre/{genreId}")
+    @DeleteMapping("/delete/genre/{genreId}")
     public String deleteAuthorByGenreId(@PathVariable("genreId") Long genreId) {
         return SingletonService.getManagerService().deleteGenreByGenreId(genreId);
+    }
+
+    @GetMapping("/analysis/time")
+    public List<UserRequestTime> showTimes() {
+        return SingletonService.getManagerService().showTimes();
+    }
+
+    @GetMapping("/analysis/books")
+    public List<UserRequestBook> showRequestBooks() {
+        return SingletonService.getManagerService().showRequestBooks();
     }
 }

@@ -1,5 +1,6 @@
 package com.onelab.task.aspect;
 
+import com.onelab.task.entities.UserRequestBook;
 import com.onelab.task.patterns.singleton.SingletonRepository;
 import com.onelab.task.entities.UserRequestTime;
 import org.aspectj.lang.JoinPoint;
@@ -59,7 +60,26 @@ public class BookStoreAspect {
             data.add(signatureArg.toString());
         }
         // save details for data analysis
-
+        try {
+            UserRequestBook userRequestBook = new UserRequestBook();
+            if (data.size() == 2) {
+                userRequestBook.setTitle(SingletonRepository.getBookRepository()
+                        .findBookByBookId(Long.parseLong(data.get(0)))
+                        .get(0).getTitle());
+                userRequestBook.setAuthorName(SingletonRepository.getBookRepository()
+                        .findBookByBookId(Long.parseLong(data.get(0)))
+                        .get(0).getAuthor().getAuthorName());
+                userRequestBook.setAmount(Integer.parseInt(data.get(1)));
+            }
+            else if (data.size() == 3) {
+                userRequestBook.setTitle(data.get(0));
+                userRequestBook.setAuthorName(data.get(1));
+                userRequestBook.setAmount(Integer.parseInt(data.get(2)));
+            }
+            SingletonRepository.getUserRequestBookRepository().save(userRequestBook);
+        } catch (Exception ex) {
+            logger.error("DID NOT SAVE BEFORE BUY DETAILS");
+        }
     }
 
     @AfterReturning(pointcut = "userServiceBuyMethods()",
@@ -67,10 +87,5 @@ public class BookStoreAspect {
     public void LoggingAfterBuyDetails(JoinPoint joinPoint, String returnValue) {
         logger.info("After this method: " + joinPoint.getSignature());
         logger.info(returnValue);
-        // save details for data analysis
     }
-
-    /**
-     * DO NOT FORGET TO ADD AOP FOR MANAGERS SERVICE
-     * */
 }

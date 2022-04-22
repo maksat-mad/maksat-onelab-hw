@@ -1,10 +1,7 @@
 package com.onelab.task.services.manager;
 
-import com.onelab.task.entities.Book;
-import com.onelab.task.entities.Genre;
+import com.onelab.task.entities.*;
 import com.onelab.task.patterns.singleton.SingletonRepository;
-import com.onelab.task.entities.Author;
-import com.onelab.task.entities.UserRequestTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,9 +26,7 @@ public class ManagerService {
      *
      * @Customer Data Analysis
      * showTimes +
-     * searchedBookName
-     * searchedAuthorName
-     * searchedGenreName
+     * showRequestBooks +
      *
      * */
 
@@ -91,5 +86,9 @@ public class ManagerService {
 
     public List<UserRequestTime> showTimes() {
         return SingletonRepository.getUserRequestTimeRepository().findAll();
+    }
+
+    public List<UserRequestBook> showRequestBooks() {
+        return SingletonRepository.getUserRequestBookRepository().findAll();
     }
 }

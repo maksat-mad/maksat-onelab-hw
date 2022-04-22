@@ -23,3 +23,10 @@ CREATE TABLE time (
     time_id INT PRIMARY KEY AUTO_INCREMENT,
     time DATE
 );
+
+CREATE TABLE requestbook (
+    request_book_id INT PRIMARY KEY AUTO_INCREMENT,
+    author_name VARCHAR(50),
+    title VARCHAR(50),
+    amount INT
+);
