@@ -12,7 +12,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +45,15 @@ public class BookStoreAspect {
         for (Object signatureArg : signatureArgs) {
             logger.info("Arg: " + signatureArg);
         }
+
+        HttpServletRequest request =
+                ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
+                        .getRequest();
+        // log ip
+        logger.info("IP address: " + request.getRemoteAddr());
+        // log url
+        logger.info("URL: " + request.getRequestURL().toString());
+        // log username
 
         // save request time for data analysis
         LocalDateTime now = LocalDateTime.now();
@@ -86,6 +98,10 @@ public class BookStoreAspect {
             returning = "returnValue")
     public void LoggingAfterBuyDetails(JoinPoint joinPoint, String returnValue) {
         logger.info("After this method: " + joinPoint.getSignature());
+        Object[] signatureArgs = joinPoint.getArgs();
+        for (Object signatureArg : signatureArgs) {
+            logger.info("Arg: " + signatureArg);
+        }
         logger.info(returnValue);
     }
 }
