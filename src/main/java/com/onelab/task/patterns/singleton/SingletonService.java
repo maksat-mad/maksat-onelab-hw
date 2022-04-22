@@ -1,7 +1,7 @@
-package com.onelab.task.design_pattern.singleton_pattern;
+package com.onelab.task.patterns.singleton;
 
-import com.onelab.task.services.manager_service.ManagerService;
-import com.onelab.task.services.user_service.UserService;
+import com.onelab.task.services.manager.ManagerService;
+import com.onelab.task.services.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

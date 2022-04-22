@@ -10,5 +10,7 @@ import java.util.List;
 @Repository
 @Transactional
 public interface AuthorRepository extends JpaRepository<Author, Long> {
-    //List<Author> findAuthorByName_authorEquals(String name_author);
+    List<Author> findAuthorByAuthorId(Long authorId);
+    List<Author> findAuthorByAuthorName(String authorName);
+    void deleteAuthorByAuthorId(Long authorId);
 }

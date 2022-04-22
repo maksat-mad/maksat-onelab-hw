@@ -9,4 +9,5 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 public interface GenreRepository extends JpaRepository<Genre, Long> {
+    void deleteGenreByGenreId(Long genreId);
 }

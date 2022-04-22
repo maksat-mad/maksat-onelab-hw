@@ -17,7 +17,7 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "book_id")
-    private Long book_id;
+    private Long bookId;
 
     @Column(name = "title")
     private String title;
@@ -41,7 +41,7 @@ public class Book {
     @Override
     public String toString() {
         return "Book = { " +
-                "book_id = " + book_id +
+                "book_id = " + bookId +
                 ", title = " + title +
                 ", price = " + price +
                 ", amount = " + amount +

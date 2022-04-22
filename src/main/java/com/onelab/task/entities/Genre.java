@@ -18,10 +18,10 @@ public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "genre_id")
-    private Long genre_id;
+    private Long genreId;
 
     @Column(name = "name_genre")
-    private String name_genre;
+    private String genreName;
 
     @OneToMany(mappedBy = "genre", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Book> books = new ArrayList<>();
@@ -29,7 +29,7 @@ public class Genre {
     @Override
     public String toString() {
         return "Genre = { " +
-                "genre_id = " + genre_id +
-                ", name_genre = " + name_genre + " }\n";
+                "genre_id = " + genreId +
+                ", name_genre = " + genreName + " }\n";
     }
 }

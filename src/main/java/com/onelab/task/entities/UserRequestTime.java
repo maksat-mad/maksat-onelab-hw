@@ -17,7 +17,7 @@ public class UserRequestTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "time_id")
-    private Long time_id;
+    private Long timeId;
 
     @Column(name = "time")
     private Date time;

@@ -1,4 +1,4 @@
-package com.onelab.task.design_pattern.singleton_pattern;
+package com.onelab.task.patterns.singleton;
 
 import com.onelab.task.repository.AuthorRepository;
 import com.onelab.task.repository.BookRepository;

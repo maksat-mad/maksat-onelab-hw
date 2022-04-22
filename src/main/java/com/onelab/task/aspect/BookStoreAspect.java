@@ -1,6 +1,6 @@
 package com.onelab.task.aspect;
 
-import com.onelab.task.design_pattern.singleton_pattern.SingletonRepository;
+import com.onelab.task.patterns.singleton.SingletonRepository;
 import com.onelab.task.entities.UserRequestTime;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -26,11 +26,11 @@ public class BookStoreAspect {
     public BookStoreAspect(SingletonRepository singletonRepository) {
     }
 
-    @Pointcut("execution(* com.onelab.task.services.user_service.UserService.find*(..))")
+    @Pointcut("execution(* com.onelab.task.services.user.UserService.find*(..))")
     public void userServiceRequestMethods() {
     }
 
-    @Pointcut("execution(* com.onelab.task.services.user_service.UserService.buy*(..))")
+    @Pointcut("execution(* com.onelab.task.services.user.UserService.buy*(..))")
     public void userServiceBuyMethods() {
     }
 

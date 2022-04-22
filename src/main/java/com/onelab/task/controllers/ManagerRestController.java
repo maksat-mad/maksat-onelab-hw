@@ -1,13 +1,11 @@
 package com.onelab.task.controllers;
 
-import com.onelab.task.design_pattern.singleton_pattern.SingletonService;
+import com.onelab.task.patterns.singleton.SingletonService;
 import com.onelab.task.entities.UserRequestTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,5 +33,20 @@ public class ManagerRestController {
     @GetMapping("/user/request/time")
     public List<UserRequestTime> showTimes() {
         return SingletonService.getManagerService().showTimes();
+    }
+
+    @DeleteMapping("delete/author/{authorId}")
+    public String deleteAuthorByAuthorId(@PathVariable("authorId") Long authorId) {
+        return SingletonService.getManagerService().deleteAuthorByAuthorId(authorId);
+    }
+
+    @DeleteMapping("delete/book/{bookId}")
+    public String deleteAuthorByBookId(@PathVariable("bookId") Long bookId) {
+        return SingletonService.getManagerService().deleteBookByBookId(bookId);
+    }
+
+    @DeleteMapping("delete/genre/{genreId}")
+    public String deleteAuthorByGenreId(@PathVariable("genreId") Long genreId) {
+        return SingletonService.getManagerService().deleteGenreByGenreId(genreId);
     }
 }
