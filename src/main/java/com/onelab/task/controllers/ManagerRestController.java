@@ -1,11 +1,11 @@
 package com.onelab.task.controllers;
 
-import com.onelab.task.entities.UserRequestBook;
+import com.onelab.task.entities.*;
 import com.onelab.task.patterns.singleton.SingletonService;
-import com.onelab.task.entities.UserRequestTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,15 +21,29 @@ public class ManagerRestController {
     }
 
     // Create
-//    @PostMapping("/author")
-//    public String createAuthor(@RequestBody Author theAuthor) {
-//
-//        theAuthor.setAuthor_id(0L);
-//
-//        //logger.info(SingletonService.getManagerService().saveAuthor(theAuthor));
-//
-//        return SingletonService.getManagerService().saveAuthor(theAuthor);
-//    }
+    @PostMapping(value = "/author")
+    public String createAuthor(@RequestBody Author theAuthor) {
+
+        theAuthor.setAuthorId(0L);
+
+        return SingletonService.getManagerService().saveAuthor(theAuthor);
+    }
+
+    @PostMapping(value = "/book")
+    public String createBook(@RequestBody Book theBook) {
+
+        theBook.setBookId(0L);
+
+        return SingletonService.getManagerService().saveBook(theBook);
+    }
+
+    @PostMapping(value = "/genre")
+    public String createGenre(@RequestBody Genre theGenre) {
+
+        theGenre.setGenreId(0L);
+
+        return SingletonService.getManagerService().saveGenre(theGenre);
+    }
 
     @DeleteMapping("/delete/author/{authorId}")
     public String deleteAuthorByAuthorId(@PathVariable("authorId") Long authorId) {

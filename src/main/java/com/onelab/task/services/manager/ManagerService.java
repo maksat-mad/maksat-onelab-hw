@@ -17,12 +17,15 @@ public class ManagerService {
     /**
      * @Author Service
      * deleteByAuthorId  +
+     * saveAuthor +
      *
      * @Book
      * deleteByBookId    +
+     * saveBook +
      *
      * @Genre
      * deleteByGenreId   +
+     * saveGenre +
      *
      * @Customer Data Analysis
      * showTimes +
