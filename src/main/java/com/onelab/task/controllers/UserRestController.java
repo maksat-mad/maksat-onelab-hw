@@ -80,37 +80,4 @@ public class UserRestController {
     public List<Genre> findAllGenres() {
         return SingletonService.getUserService().findAllGenres();
     }
-
-    @GetMapping("/buy")
-    public String buyInfo() {
-        return "INSTRUCTIONS, ATTENTION PLEASE !!!\n" +
-                "Hello user, you can buy a book or books buy entering this\n" +
-                "/buy/{title}/{authorName}/{amount}   or   /buy/{title}/{authorName} " +
-                "    or     /buy/{bookId}      or       /buy/{bookId}/{amount}\n" +
-                "Good Luck! :)";
-    }
-
-    @PutMapping("/buy/{bookId}")
-    public String buyBookByBookId(@PathVariable("bookId") Long bookId) {
-        return SingletonService.getUserService().buyBookByIdAndAmount(bookId, 1);
-    }
-
-    @PutMapping("/buy/{bookId}/{amount}")
-    public String buyBookByBookId(@PathVariable("bookId") Long bookId,
-                                  @PathVariable("amount") Integer amount) {
-        return SingletonService.getUserService().buyBookByIdAndAmount(bookId, amount);
-    }
-
-    @PutMapping("/buy/{title}/{authorName}")
-    public String buyBookByTitleAndNameAuthorAndAmount(@PathVariable("title") String title,
-                                                       @PathVariable("authorName") String authorName) {
-        return SingletonService.getUserService().buyBookByTitleAndNameAuthorAndAmount(title, authorName, 1);
-    }
-
-    @PutMapping("/buy/{title}/{authorName}/{amount}")
-    public String buyBookByTitleAndNameAuthorAndAmount(@PathVariable("title") String title,
-                                                       @PathVariable("authorName") String authorName,
-                                                       @PathVariable("amount") Integer amount) {
-        return SingletonService.getUserService().buyBookByTitleAndNameAuthorAndAmount(title, authorName, amount);
-    }
 }
