@@ -1,16 +1,16 @@
 package com.onelab.task.services.user;
 
-import com.onelab.task.patterns.singleton.SingletonRepository;
 import com.onelab.task.entities.Author;
 import com.onelab.task.entities.Book;
 import com.onelab.task.entities.Genre;
+import com.onelab.task.patterns.singleton.SingletonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
-
-import static java.util.stream.Collectors.toList;
 
 @Service
 public class UserService {
