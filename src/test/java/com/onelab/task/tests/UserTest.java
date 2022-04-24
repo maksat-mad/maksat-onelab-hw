@@ -1,4 +1,4 @@
-package com.onelab.task.services.user;
+package com.onelab.task.tests;
 
 import com.onelab.task.entities.Author;
 import com.onelab.task.entities.Book;
@@ -8,6 +8,7 @@ import com.onelab.task.patterns.singleton.SingletonService;
 import com.onelab.task.repository.AuthorRepository;
 import com.onelab.task.repository.BookRepository;
 import com.onelab.task.repository.GenreRepository;
+import com.onelab.task.services.user.UserService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -20,7 +21,7 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-class UserServiceTest {
+class UserTest {
 
     @Mock
     AuthorRepository authorRepository;
