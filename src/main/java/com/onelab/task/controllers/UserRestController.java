@@ -18,9 +18,6 @@ public class UserRestController {
     UserRestController(SingletonService singletonService) {
     }
 
-    // Get requests
-
-    // Do not delete this
     @GetMapping("/authors/{authorId}")
     public List<Author> findAuthorByAuthorId(@PathVariable("authorId") Long authorId) {
         return SingletonService.getUserService().findAuthorByAuthorId(authorId);

@@ -11,7 +11,7 @@ CREATE TABLE genre (
 CREATE TABLE book (
     book_id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(50),
-    author_id INT NOT NULL,
+    author_id INT,
     genre_id INT,
     price INT,
     amount INT,

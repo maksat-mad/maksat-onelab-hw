@@ -14,25 +14,6 @@ public class ManagerService {
     public ManagerService(SingletonRepository singletonRepository) {
     }
 
-    /**
-     * @Author Service
-     * deleteByAuthorId  +
-     * saveAuthor +
-     *
-     * @Book
-     * deleteByBookId    +
-     * saveBook +
-     *
-     * @Genre
-     * deleteByGenreId   +
-     * saveGenre +
-     *
-     * @Customer Data Analysis
-     * showTimes +
-     * showRequestBooks +
-     *
-     * */
-
     public String deleteAuthorByAuthorId(Long authorId) {
         try {
             SingletonRepository.getAuthorRepository().deleteAuthorByAuthorId(authorId);

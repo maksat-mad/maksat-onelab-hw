@@ -1,6 +1,8 @@
 package com.onelab.task.aspect;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onelab.task.entities.UserRequestBook;
+import com.onelab.task.jwt.UsernameAndPasswordAuthenticationRequest;
 import com.onelab.task.patterns.singleton.SingletonRepository;
 import com.onelab.task.entities.UserRequestTime;
 import org.aspectj.lang.JoinPoint;
@@ -16,6 +18,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,14 +49,8 @@ public class BookStoreAspect {
             logger.info("Arg: " + signatureArg);
         }
 
-        HttpServletRequest request =
-                ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
-                        .getRequest();
-        // log ip
-        logger.info("IP address: " + request.getRemoteAddr());
-        // log url
-        logger.info("URL: " + request.getRequestURL().toString());
-        // log username
+        // This method logs IP, URL and Username
+        logIPandURLandUSERNAME();
 
         // save request time for data analysis
         LocalDateTime now = LocalDateTime.now();
@@ -71,6 +68,10 @@ public class BookStoreAspect {
             logger.info("Arg: " + signatureArg);
             data.add(signatureArg.toString());
         }
+
+        // This method logs IP, URL and Username
+        logIPandURLandUSERNAME();
+
         // save details for data analysis
         try {
             UserRequestBook userRequestBook = new UserRequestBook();
@@ -103,5 +104,23 @@ public class BookStoreAspect {
             logger.info("Arg: " + signatureArg);
         }
         logger.info(returnValue);
+    }
+
+    private void logIPandURLandUSERNAME() {
+        HttpServletRequest request =
+                ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
+                        .getRequest();
+        // log ip
+        logger.info("IP address: " + request.getRemoteAddr());
+        // log url
+        logger.info("URL: " + request.getRequestURL().toString());
+        // log username
+        try {
+            UsernameAndPasswordAuthenticationRequest authenticationRequest = new ObjectMapper()
+                    .readValue(request.getInputStream(), UsernameAndPasswordAuthenticationRequest.class);
+            logger.info("USERNAME: " + authenticationRequest.getUsername());
+        } catch(IOException ex) {
+            logger.error("FAILED TO SHOW CURRENT USERNAME BECAUSE YOU MUST LOGIN :) to see username");
+        }
     }
 }
