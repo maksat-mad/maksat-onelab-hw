@@ -1,10 +1,13 @@
 package com.onelab.task.services.manager;
 
 import com.onelab.task.entities.*;
+import com.onelab.task.patterns.adapter.impl.NewTimeFormatAdapter;
+import com.onelab.task.patterns.adapter.newformat.NewUserRequestTime;
 import com.onelab.task.patterns.singleton.SingletonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -74,5 +77,15 @@ public class ManagerService {
 
     public List<UserRequestBook> showRequestBooks() {
         return SingletonRepository.getUserRequestBookRepository().findAll();
+    }
+
+    public List<NewUserRequestTime> showTimesAdapter() {
+        List<NewUserRequestTime> res = new ArrayList<>();
+        for (UserRequestTime userRequestTime
+                : SingletonRepository.getUserRequestTimeRepository().findAll()) {
+            NewUserRequestTime newFormatTime = new NewTimeFormatAdapter(userRequestTime);
+            res.add(newFormatTime);
+        }
+        return res;
     }
 }

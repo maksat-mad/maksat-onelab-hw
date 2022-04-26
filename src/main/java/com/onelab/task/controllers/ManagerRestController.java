@@ -1,6 +1,7 @@
 package com.onelab.task.controllers;
 
 import com.onelab.task.entities.*;
+import com.onelab.task.patterns.adapter.newformat.NewUserRequestTime;
 import com.onelab.task.patterns.singleton.SingletonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -93,5 +94,11 @@ public class ManagerRestController {
     @PreAuthorize("hasAuthority('analysis')")
     public List<UserRequestBook> showRequestBooks() {
         return SingletonService.getManagerService().showRequestBooks();
+    }
+
+    @GetMapping("/analysis/new/format/time")
+    @PreAuthorize("hasAuthority('analysis')")
+    public List<NewUserRequestTime> showTimesAdapter() {
+        return SingletonService.getManagerService().showTimesAdapter();
     }
 }
