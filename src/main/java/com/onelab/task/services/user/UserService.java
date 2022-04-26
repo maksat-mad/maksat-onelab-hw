@@ -4,6 +4,10 @@ import com.onelab.task.entities.Author;
 import com.onelab.task.entities.Book;
 import com.onelab.task.entities.Genre;
 import com.onelab.task.patterns.singleton.SingletonRepository;
+import com.onelab.task.patterns.strategy.TextEditor;
+import com.onelab.task.patterns.strategy.TextFormatter;
+import com.onelab.task.patterns.strategy.strategies.CapTextFormatter;
+import com.onelab.task.patterns.strategy.strategies.LowerTextFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,9 +46,30 @@ public class UserService {
     }
 
     public Set<String> findBookAllTitles() {
+
+        // Using strategy design pattern
+        logAllTitlesCapStrategy();
+        logAllTitlesLowerStrategy();
+
         return SingletonRepository.getBookRepository().findAll()
                 .stream().map(Book::getTitle)
                 .collect(Collectors.toCollection(TreeSet::new));
+    }
+
+    private void logAllTitlesLowerStrategy() {
+        TextFormatter formatter = new CapTextFormatter();
+        TextEditor editor = new TextEditor(formatter);
+        SingletonRepository.getBookRepository().findAll()
+                .stream().map(Book::getTitle)
+                .forEach(editor::logText);
+    }
+
+    private void logAllTitlesCapStrategy() {
+        TextFormatter formatter = new LowerTextFormatter();
+        TextEditor editor = new TextEditor(formatter);
+        SingletonRepository.getBookRepository().findAll()
+                .stream().map(Book::getTitle)
+                .forEach(editor::logText);
     }
 
     public List<Book> findBookByTitleEquals(String title) {
