@@ -48,9 +48,14 @@ public class UserRestController {
         return SingletonService.getUserService().findBookAllTitles();
     }
 
+    @GetMapping("/books/magic/{title}")
+    public String magicBookDecorator(@PathVariable("title") String title) {
+        return SingletonService.getUserService().magicBookDecorator(title);
+    }
+
     @GetMapping("/books/title/{title}")
     public List<Book> findBookByTitleEquals(@PathVariable("title") String title) {
-        return SingletonService.getUserService().findBookByTitleEquals(title);
+        return SingletonService.getUserService().findBookByTitle(title);
     }
 
     @GetMapping("/books/price")
@@ -60,7 +65,7 @@ public class UserRestController {
 
     @GetMapping("/books/price/{price}")
     public List<Book> findBookByPriceBeforeOrPriceEquals(@PathVariable("price") Integer price) {
-        return SingletonService.getUserService().findBookByPriceBeforeOrPriceEquals(price, price);
+        return SingletonService.getUserService().findBookByPriceBeforeOrPrice(price, price);
     }
 
     @GetMapping("/books/amount")
@@ -70,7 +75,7 @@ public class UserRestController {
 
     @GetMapping("/books/amount/{amount}")
     public List<Book> findBookByAmountBeforeOrAmountEquals(@PathVariable("amount") Integer amount) {
-        return SingletonService.getUserService().findBookByAmountBeforeOrAmountEquals(amount, amount);
+        return SingletonService.getUserService().findBookByAmountBeforeOrAmount(amount, amount);
     }
 
     @GetMapping("/genres")

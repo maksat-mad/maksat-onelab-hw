@@ -79,7 +79,7 @@ class UserTest {
 
     @Test
     void findBookByTitleEquals() {
-        List<Book> books = userService.findBookByTitleEquals("Adventures of Tow Sawyer");
+        List<Book> books = userService.findBookByTitle("Adventures of Tow Sawyer");
         assertEquals(books, bookRepository.findBookByTitle("Adventures of Tow Sawyer"));
     }
 
@@ -91,7 +91,7 @@ class UserTest {
 
     @Test
     void findBookByPriceBeforeOrPriceEquals() {
-        List<Book> books = userService.findBookByPriceBeforeOrPriceEquals(1500, 1500);
+        List<Book> books = userService.findBookByPriceBeforeOrPrice(1500, 1500);
         assertEquals(books, bookRepository.findBookByPriceBeforeOrPrice(1500, 1500));
     }
 
@@ -103,7 +103,7 @@ class UserTest {
 
     @Test
     void findBookByAmountBeforeOrAmountEquals() {
-        List<Book> books = userService.findBookByAmountBeforeOrAmountEquals(25, 25);
+        List<Book> books = userService.findBookByAmountBeforeOrAmount(25, 25);
         assertEquals(books, bookRepository.findBookByAmountBeforeOrAmount(25, 25));
     }
 
